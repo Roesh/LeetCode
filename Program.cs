@@ -17,7 +17,14 @@ namespace Leet_code
             
             int[] input = args[0].Split(',').Select(n => Convert.ToInt32(n)).ToArray();
             
-            threeSum.performThreeSum(input);
+            var output = threeSum.performThreeSum(input);
+
+            foreach(var list in output){
+                foreach(var item in list){
+                    Console.Write(item + ",");
+                }
+                Console.WriteLine();
+            }
         }
     }
 }

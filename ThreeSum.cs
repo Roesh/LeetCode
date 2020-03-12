@@ -3,15 +3,15 @@
 // https://stackoverflow.com/questions/8142389/returning-ilistilistt
 
 /* Pseudo code
-            For a 2-sum, we can create a hashSet of values and then we can loop through the values and 
-            check if the hashSet contains the value needed to satisfy our constraint.
-            For example, if the two values need to add to 0, we will check if the negative of 
-            the value being checked exists in the hashSet
+    To get the unique pairs in a list that make up 2-sum, we can create a hashSet the input values, then,
+    we can loop through the values and see if a key exists in the hashset for *desired value* - current value.
+    
+    For example, if the two values need to add to 0, we will check if the negative of 
+    the value being checked exists in the hashSet. If the desired value is 10, we will check if 10-value is in the hashset.
 
-            For a 3-sum, we can create a hashMap where the keys are unique pairs of numbers and the values
-            are the pair's sums. We can loop through the list
-
-            */
+    For a 3-sum, we can create a hashMap where the keys are unique pairs of numbers and the values
+    are the pair's sums. We can loop through the list
+*/
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,7 +24,7 @@ namespace Leet_code{
             Dictionary<pair,int> twoSum = new Dictionary<pair, int>();
             HashSet<triplet> three_sum = new HashSet<triplet>();
                         
-            Console.WriteLine("Pairs");
+            //Console.WriteLine("Pairs");
             for(int i = 0; i < input.Length; i++){
                 for(int j = i+1; j < input.Length; j++){
                     pair pair = new pair(input[i],input[j],i,j);
@@ -35,7 +35,7 @@ namespace Leet_code{
                     }
                 }
             }
-            Console.WriteLine("Triplets");
+            //Console.WriteLine("Triplets");
 
             //https://stackoverflow.com/questions/12177596/get-key-by-value-in-hash-table-c-sharp#answer-12177642
             int index = 0;
@@ -50,7 +50,8 @@ namespace Leet_code{
                         if(!three_sum.Contains(triplet)){
                             
                             three_sum.Add(triplet);
-                            Console.WriteLine(i + ": " + triplet.ToString());
+                            //Console.WriteLine(i + ": " + triplet.ToString());
+                            result.Add(new List<int>(){triplet.x1,triplet.x2,triplet.x3});                            
                         }
                     }
                 }
@@ -97,7 +98,7 @@ namespace Leet_code{
         // Assumes x1 and x2 are in ascending order. 
         // Ensures that triplet is in ascending order
         private struct triplet{
-            int x1,x2,x3;
+            public int x1,x2,x3;
             public triplet(int x1, int x2, int x3){
                 if(x3 < x1){
                     this.x1 = x3;
