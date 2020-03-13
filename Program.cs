@@ -6,7 +6,19 @@ namespace Leet_code
     class Program
     {
         static void Main(string[] args){
-            ThreeSumEntry(args);
+                        
+        }
+
+        static void CommonPrefixEntry(string[] args){
+            if(args.Length == 0){
+                throw new ArgumentException("Common Prefix Entry requires input strings. Format is \"abc,bcd,cde...,xyz\"");                
+            }
+            var strs = args[0].Split(",");
+            /*foreach(string s in strs){
+                Console.WriteLine(s);
+            }*/
+            string commonPrefix = CommonPrefix.LongestCommonPrefix(strs);
+            Console.WriteLine("Longest Common prefix among input is "+ commonPrefix);
         }
 
         static void ThreeSumEntry(string[] args){
@@ -25,6 +37,18 @@ namespace Leet_code
                 }
                 Console.WriteLine();
             }
+        }
+
+        static void ValidParanthesesEntry(string[] args){
+            if(args.Length == 0){
+                throw new ArgumentException("Requires input array argument. Format is any combination of brackets, e.g: \"(){}[]\"");
+            }
+            if(ValidParanthesesClass.IsValid(args[0])){
+                Console.WriteLine("Parantheses are balanced");
+            }else{
+                Console.WriteLine("Parantheses are not balanced");
+            }
+
         }
     }
 }
