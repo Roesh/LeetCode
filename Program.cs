@@ -6,7 +6,7 @@ namespace Leet_code
     class Program
     {
         static void Main(string[] args){
-                        
+            TwoSumEntry(args);
         }
 
         static void CommonPrefixEntry(string[] args){
@@ -49,6 +49,25 @@ namespace Leet_code
                 Console.WriteLine("Parantheses are not balanced");
             }
 
+        }
+
+        static void TwoSumEntry(string[] args){
+            if(args.Length < 2){
+                throw new ArgumentException("Requires input array and target arguments. Format is \"x1,x2,x3...,x4\" and target should be integer");
+            }
+            int[] input = args[0].Split(',').Select(n => Convert.ToInt32(n)).ToArray();
+            int target;
+            int.TryParse(args[1],out target);
+            int[] output = TwoSumClass.TwoSum(input,target);
+            if(output == null){
+                Console.WriteLine("No pairs that satisfy constaint found");      
+                return;          
+            }if(output.Length != 2){
+                throw new Exception("Output array does not have exactly two elements.");
+            }
+            else{
+                Console.WriteLine("Two sum satisfied by integers at " + output[0] + " and " + output[1]);
+            }
         }
     }
 }
