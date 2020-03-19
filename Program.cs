@@ -8,7 +8,7 @@ namespace Leet_code
     class Program
     {
         static void Main(string[] args){
-            AddTwoNumbersClassEntry(args);
+            MultiplyStringsClassEntry(args);
         }
 
         static void CommonPrefixEntry(string[] args){
@@ -73,6 +73,8 @@ namespace Leet_code
         }
     
         static void AddTwoNumbersClassEntry(string[] args){
+        
+        
             if(args.Length < 2){
                 throw new ArgumentException("Please supply at least two integer arguments when calling add Two Numbers");
             }
@@ -93,6 +95,14 @@ namespace Leet_code
             Console.WriteLine("List 2 is " + AddTwoNumbersClass.printNode(list2));
             Console.WriteLine("Sum of lists is " + AddTwoNumbersClass.printNode(result));
             
+        }
+    
+        static void MultiplyStringsClassEntry(string[] args){
+            if(args.Length < 2){
+                throw new ArgumentException("Please supply at least two integer arguments when calling add Two Numbers");
+            }       
+            var multiplyString = new MultiplyStringClass();
+            Console.WriteLine("Result is " + multiplyString.Multiply(args[0],args[1]));
         }
     }
 }
